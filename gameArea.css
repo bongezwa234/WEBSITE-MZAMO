@@ -1,0 +1,12 @@
+.btn{
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 30px;
+    cursor:pointer;
+    display: inline-block;
+    margin-left: 200px;
+    border-color: black;
+}
+.About-Us{
+    color: green;
+}
