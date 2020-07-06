@@ -2,6 +2,7 @@
 <html lang="zxx">
 <head>
 	<title>Mzamomtsha Primary School</title>
+	<link rel="stylesheet" href="Contact-form.css">
 	<link rel="stylesheet" href="style(1).css">
 	<link rel="stylesheet" href="slideStyle.css">
 	<link rel="stylesheet" href="main (1).js">
@@ -24,13 +25,35 @@
 	<meta name="keywords" content="SCHOOL SITE, eCommerce, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<script>
+		'use strict';
+		
+		let buffer = new ArrayBuffer(16); // create a buffer of length 16
+		
+		let view = new Uint32Array(buffer); // treat buffer as a sequence of 32-bit integers
+		
+		alert(Uint32Array.BYTES_PER_ELEMENT); // 4 bytes per integer
+		
+		alert(view.length); // 4, it stores that many integers
+		alert(view.byteLength); // 16, the size in bytes
+		
+		// let's write a value
+		view[0] = 123;
+		
+		// iterate over values
+		for(let num of view) {
+		  alert(num); // 123456, then 0, 0, 0 (4 values total)
+		}
+		</script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
-		$("#aboutUs").click('function') {
+		$("#aboutUs").click(function(){
 			$("#navbar").CSS(background-color, 'white');
+		
 
-		}
+
 	});
 	$("#events").click(function(){
 		$("#navbar").CSS('background-color', 'red')
@@ -168,6 +191,8 @@
 			<a id='aboutUs' onclick="changeColor1()" href="#history">About Us</a>
 			<a id='events' onclick="changeColor2()" href="#schoolProject">Events</a>
 			<a id='contacts' onclick="changeColor3()" href="#footerDiv">Contacts</a>
+			<a id='signUp' onclick="changeColor4()" href="sign.html">Sign Up</a>
+
 			<a id='games' onclick="changeColor4()" href="gameArea.html">Games</a>
 			<div style="width: 100%; height: 10px; background-color: steelblue;z-index: 104;background-attachment: fixed;"></div>
 		</div>
@@ -494,38 +519,55 @@
 	
 	</section>
 	<!-- Footer section end -->
+	
 
 	<div class="Contact-form">
 		<h1>CONTACT FORM</h1>
-	<form id="theForm" action="validate.html" method="post" onsubmit="return validateTextBox();">
-	<div class="validateDetails">
-	<label for="name">Name</label>
-	<input type="text" id="name" name="">
-	</div> <br>
-	<div class="validateDetails">
-	<label for="surname">Surname</label>
-	<input type="text" id="surname" name="">
-	</div><br>
-	<div class="validateDetails">
-	<label for="email">Email</label>
-	<input type="text" id="email" name="">
-	</div>
-	<br>
-	<div class="validateDetails">
-	<label for="phone">Phone</label>
-	<input type="text" id="phone" name="">
-	</div>
-	<br>
-	<div class="validateDetails">
-		<label for="message">Message</label>
-		<input type="text" id="message" name="">
-		</div>
-	<input type="submit" value="Submit">
-	</form>
+		<form id="theForm" action="validate.html" method="post" onsubmit="return validateTextBox();">
+			<div class="validateDetails">
+				<label for="name">Name</label>
+				<input type="text" id="name" name="">
+			</div> <br>
+			<div class="validateDetails">
+				<label for="surname">Surname</label>
+				<input type="text" id="surname" name="">
+				</div><br>
+			<div class="validateDetails">
+				<label for="email">Email</label>
+				<input type="text" id="email" name="">
+			</div>
+			<br>
+			<div class="validateDetails">
+				<label for="phone">Phone</label>
+				<input type="text" id="phone" name="">
+			</div>
+			<br>
+			<div class="validateDetails">
+				<label for="message">Message</label>
+				<input type="text" id="message" name="">
+			</div>
+				<input type="submit" value="Submit">
+		</form>
 	</div>	
 
 	<script src="myjava.js"></script>
 	<br>
+
+	<!--communication between windows-->
+
+	<input type="text" id="msg">
+	<button id="send">Send</button>
+
+	<script>
+		document.getElementById("send").addEventListener("click",send_msg,true);
+		function send_msg() {
+			var text=document.getElementById("msg").value;
+			document.getElementById("inner").contentWindow.postMessage(text,"http://www.abelski.com");
+		}
+	</script>
+	<h2>the iframe</h2>
+	<iframe id="inner" src="inner.html"></iframe>
+
 	
 	<div class="calEnd" id="footerDiv">
 			<h1>Calendar</h1>
@@ -586,6 +628,8 @@
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/main.js"></script>
+
+	
 
 	</body>
 <script>

@@ -10,6 +10,10 @@ function changeColor1(){
             var color = document.getElementById("navbar");
             color.style.background = "Yellow"}
 
+            function changeColor4(){
+                var color = document.getElementById("navbar");
+                color.style.background = "Green"}
+
 
 
 
@@ -35,5 +39,23 @@ function validateTextBox() {
     }
 
 }
+document.getElementById('button').addEventListener('click',function() {
+    document.querySelector('.bg-modal').style.display ='flex';
+});
 
+document.querySelector('.close').addEventListener('click',function() {
+    document.querySelector('.bg-modal').style.display = 'none';
+});
+
+//pop up //
+alert("Welcome to Mzamomtsha primary school")
+
+//popup blocked
+
+window.open("https://competent-mcnulty-76db04.netlify.app/");
+
+//popup allowed
+button.onclick=()=>{
+    window.open("https://competent-mcnulty-76db04.netlify.app/");
+}
 

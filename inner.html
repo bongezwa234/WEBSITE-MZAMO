@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <br>message data:<div id="received_msg"></div>
+        <br>message origin:<div id="src">
+            <script>
+                function handlingMsg (e) {
+                    document.getElementById('src').innerHTML = e.origin;
+                    if (e.origin == "https://www.abelski.com") {
+                        document.getElementById('received_msg').innerHTML = e.data;
+                    }
+                }
+                addEventListener("message",handlingMsg,true);
+                document.getElementById('received_msg').innerHTML="Hello world";
+                document.getElementById('src').innerHTML="Hello world";
+            </script>
+        </div>
+    </body>
+</html>
